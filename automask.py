@@ -1,15 +1,21 @@
 
 from __future__ import print_function
+import os
 import bpy
 from bpy.types import Operator, Panel, PropertyGroup, WindowManager
 from bpy.props import PointerProperty, StringProperty, IntProperty, FloatProperty, BoolProperty
 import sys
-paths = [
-    #PYTHON_PATH,
-    PROJECT_DIR 
-]
+from pathlib import Path
+
+# Determine optional Python package path and project directory automatically
+PYTHON_PATH = os.environ.get("PYTHON_PATH")
+PROJECT_DIR = Path(__file__).resolve().parent
+
+paths = [p for p in (PYTHON_PATH, str(PROJECT_DIR)) if p]
 for p in paths:
-    sys.path.insert(0, p)
+    if p not in sys.path:
+        sys.path.insert(0, p)
+
 from mask_spline import *
 from SiamMask import *
 
