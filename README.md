@@ -21,7 +21,7 @@ Download the repository as `.zip` file and extract it or clone it to your comput
 To use this Add-on, several 3rd party libraries are required (see `requirements.txt`). You can either install the dependencies to
 the Blender python or if python is already installed on the system and the python version is compatible with the Blender python version you can also install the dependencies on your system.
 3. Adding the Project to the Python path:
-Open `automask.py` in your favorite text editor and replace `PYTHON_PATH` with the path to you python site-packages if needed and `PROJECT_DIR` with the path to the directory you downloaded this repository to.
+The add-on automatically adds its own directory to Python's module search path. To include additional site-packages, set the `PYTHON_PATH` environment variable before launching Blender.
 4. Install Dependencies:
 * PyTorch 
 The neural network that does the heavy lifting is written for [PyTorch](https://pytorch.org/).
